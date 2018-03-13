@@ -28,15 +28,6 @@ class Buttons extends React.Component
 					<button className="btn btn-default" onClick={this.props.seed}>
 					  Seed
 					</button>
-					<DropdownButton
-						title="Grid Size"
-						id="size-menu"
-						onSelect={this.handleSelect}
-					>
-						<MenuItem eventKey="1">20x10</MenuItem>
-						<MenuItem eventKey="2">50x30</MenuItem>
-						<MenuItem eventKey="3">70x50</MenuItem>
-					</DropdownButton>
 				</ButtonToolbar>
 				</div>
 			);
@@ -152,6 +143,21 @@ class Main extends React.Component
 	{
 		this.speed=1000;
 		this.playButton();
+	}
+
+	fast = () =>
+	{
+		this.speed=50;
+		this.playButton();
+	}
+
+	clear = () =>
+	{
+		let grid=Array(this.rows).fill().map(() => Array(this.cols).fill(false));
+		this.setState({
+			gridFull: grid,
+			generation: 0
+		});
 	}
 
 	pauseButton = () =>
