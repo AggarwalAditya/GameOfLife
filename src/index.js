@@ -158,6 +158,7 @@ class Main extends React.Component
 			gridFull: grid,
 			generation: 0
 		});
+		this.pauseButton();
 	}
 
 	pauseButton = () =>
